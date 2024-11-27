@@ -5,6 +5,8 @@ import pandas as pd
 matplotlib.rcParams.update({'font.size': 10})
 
 
+#AQUÍ SE PONE EL CÓDIGO PARA GENERAR TODOS LOS GRÉFICOS A LA VEZ
+
 version = input("Ingresa la versió dels plots generats: ")
 df = pd.read_excel('datos_isotermas.xlsx')
 
@@ -39,7 +41,8 @@ plt.plot(iso_45[1],iso_45[0], label='T = 45ºC',marker = 'o', markersize = 3)
 plt.scatter(punts_sat[1],punts_sat[0], label = 'Punts de saturació', s =25, color = 'k',marker ='D')
 plt.legend()
 
-plt.savefig(f"../practica_IIIb/plots/clapeyron/Clapeyron_v{version}.png")
+plt.savefig(f"../practica_IIIb/plots/clapeyron/Clalgo
+peyron_v{version}.png")
 
 #-------------------------------AJUST CORBA DE SATURACIÓ----------------------------------------------
 

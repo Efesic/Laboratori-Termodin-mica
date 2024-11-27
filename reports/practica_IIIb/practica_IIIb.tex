@@ -27,6 +27,10 @@
 
 \usepackage{titlesec}
 
+\newenvironment{Figura}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
+
 \titleformat{\section}  % comando de sección a formatear
   {\fontsize{14}{16}\bfseries} % formato para toda la línea
   {\thesection} % cómo mostrar el número
@@ -68,10 +72,18 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
     Estudiarem les propietats de l'hexafluorur de sofre (SF$_6$) en condicions isotèrmiques al voltant del punt crític.
     
     \section{Resultats i discussió}
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    \subsection{Diagrama de Clapeyron}
+    A partir de les dades experimentals obtingudes al laboratori (veure Annex II a la Secció \ref{sec:Annex_Dades}) construim el diagrama de Clapeyron que s'observa a la Figura \ref{fig:Diagrama_Clapeyron}.
     
+    \begin{Figura}
+        \centering
+        \includegraphics[width=1\linewidth]{../../graphs/practica_IIIb/plots/clapeyron/Clapeyron_v.1.png}
+        \captionof{figure}{\footnotesize Diagrama de Clapeyron $p$ vs. $V_{sist}$ per a diferents temperatures.}\label{fig:Diagrama_Clapeyron}
+    \end{Figura}
+
     \section{Conclusions}
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    \section{Annex II: Dades experimentals}\label{sec:Annex_Dades}
 \end{multicols}
 
 

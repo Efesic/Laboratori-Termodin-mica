@@ -1,21 +1,70 @@
-\documentclass{article}
-\title{Prueba en LaTeX}
-\author{Tu Nombre}
-\date{\today}
+\documentclass[12pt,twosides,onecolumn,openany]{article}
+\usepackage{graphicx} 
+
+
+\usepackage[catalan]{babel}
+\usepackage{emptypage}
+\usepackage{hyperref}
 \usepackage{mathtools}
+\usepackage{blindtext}
+\usepackage{subfigure}
+\usepackage[utf8]{inputenc}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage[a4paper]{geometry}
+\geometry{top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{rotating}
+
+\usepackage{titlesec}
+
+\newenvironment{Figura}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
+
+\titleformat{\section}  % comando de sección a formatear
+  {\fontsize{14}{16}\bfseries} % formato para toda la línea
+  {\thesection} % cómo mostrar el número
+  {0.4em} % espacio entre el número y el texto
+  {} % formato solo para el texto
+  [] % formato para después del texto
+
+
+\fancyhf{}
+\fancyhead[LO,RE]{Grup D3}
+\fancyhead[RO,LE]{Pràctica Ia}
+\fancyfoot[LO,RE]{\thepage}
+\fancyfoot[RO,LE]{Laboratori de Termodinàmica - UAB}
+\graphicspath{ {images/} }
+
 \begin{document}
 
-\maketitle
-Prueba de que se puede escribir algo, usar un paquete y guardarlo sin dar problemas o no.
-\section{Introducción}
-Este es un documento de prueba en LaTeX.\\\\
-Esto es una segunda prueba de que puedo escribir en latex en local:
-\begin{equation*}
-    E = mc^2
-\end{equation*}
-Aquí hay algunos ejemplos del uso de mathtools:
-
-\[
-  a \coloneqq b + c  % Usando \coloneqq para definiciones
-\]
+\begin{center}
+    {\Large \textsc{Transport de la calor: Estudi del transport de la calor en una barra metàl·lica}}\\
+    \vspace{0.2cm}
+    \textsc{30 d'Octubre de 2024}\\
+    \vspace{0.2cm}
+    $\begin{matrix} 
+    \text{Miguel A.} \hspace{1.5cm} & \text{Daniel B.} & \hspace{1.5cm} \text{Sergi R.}\\1637738 \hspace{1.5cm} & 1603508 & \hspace{1.5cm} 1607805
+    \end{matrix}$
+\end{center}
+\begin{center}
+    \textsc{\textit{RESUM}}
+\end{center}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. \cite{prueba}
+\vspace{0.5cm}
+\begin{multicols}{2}
+\section{Introducció i objectius}
+\section{Resultats i discussió}
+\section{Conclusions}
+\end{multicols}
 \end{document}
