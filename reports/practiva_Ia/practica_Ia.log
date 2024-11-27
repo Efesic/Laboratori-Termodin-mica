@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.11.22)  26 NOV 2024 23:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.11.22)  27 NOV 2024 23:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -508,7 +508,7 @@ File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 LaTeX Warning: Unused global option(s):
     [twosides,openany].
 
-(practica_Ia.aux)
+No file practica_Ia.aux.
 \openout1 = `practica_Ia.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
@@ -529,7 +529,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 49.
 LaTeX Font Info:    ... okay on input line 49.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 49.
 LaTeX Font Info:    ... okay on input line 49.
- (C:\Users\miapd\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+(C:\Users\miapd\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count332
 \scratchdimen=\dimen261
@@ -558,7 +558,6 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 Package color Info: Driver file: pdftex.def on input line 149.
  (C:\Users\miapd\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx))
 Package hyperref Info: Link coloring ON on input line 49.
- (practica_Ia.out) (practica_Ia.out)
 \@outlinefile=\write3
 \openout3 = `practica_Ia.out'.
 
@@ -622,6 +621,35 @@ LaTeX Font Warning: Font shape `OT1/cmr/m/scit' undefined
 LaTeX Warning: Citation `prueba' on page 1 undefined on input line 63.
 
 
+LaTeX Warning: Reference `T_vs_d' on page 1 undefined on input line 68.
+
+
+c:/Miguel/UAB/TERCER/LAB Termo/Repositori/reports/practiva_Ia/practica_Ia.tex:71: Package keyval Error: options undefined.
+
+See the keyval package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.71   \includegraphics[options]{name}
+                                      
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+c:/Miguel/UAB/TERCER/LAB Termo/Repositori/reports/practiva_Ia/practica_Ia.tex:71: LaTeX Error: File `name' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.71   \includegraphics[options]{name}
+                                      
+I could not locate the file with any of these extensions:
+.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
 (fancyhdr)                \setlength{\headheight}{14.49998pt}.
@@ -642,21 +670,27 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
-Package rerunfilecheck Info: File `practica_Ia.out' has not changed.
-(rerunfilecheck)             Checksum: C11F61E70389E24EE3536C1EE25A1646;422.
+
+Package rerunfilecheck Warning: File `practica_Ia.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `practica_Ia.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  C11F61E70389E24EE3536C1EE25A1646;422.
  ) 
 Here is how much of TeX's memory you used:
- 14539 strings out of 474486
- 236392 string characters out of 5743754
- 1933542 words of memory out of 5000000
- 36614 multiletter control sequences out of 15000+600000
+ 14561 strings out of 474486
+ 236527 string characters out of 5743754
+ 1934542 words of memory out of 5000000
+ 36642 multiletter control sequences out of 15000+600000
  564916 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,12n,79p,569b,559s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,12n,79p,569b,593s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\miapd\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1728.pk><C:/Users/miapd/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/miapd/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/miapd/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/miapd/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on practica_Ia.pdf (1 page, 57434 bytes).
+Output written on practica_Ia.pdf (1 page, 57045 bytes).
 PDF statistics:
- 49 PDF objects out of 1000 (max. 8388607)
+ 39 PDF objects out of 1000 (max. 8388607)
  5 named destinations out of 1000 (max. 500000)
- 25 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

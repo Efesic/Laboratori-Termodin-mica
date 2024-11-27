@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1732658860.91246 "c:/Miguel/UAB/TERCER/LAB Termo/Repositori/reports/practiva_Ia/practica_Ia.tex" "practica_Ia.pdf" "practica_Ia" 1732658862.14128 0
+["pdflatex"] 1732747977.47771 "c:/Miguel/UAB/TERCER/LAB Termo/Repositori/reports/practiva_Ia/practica_Ia.tex" "practica_Ia.pdf" "practica_Ia" 1732747979.22318 2
   "C:/Users/miapd/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1732658106 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/miapd/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1728.pk" 1732658779 20624 e72da8374cc9ba91837e08964cee87cd ""
   "C:/Users/miapd/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1732293439 24225047 6ed598347e6d94760fa365d3284e7ad6 ""
@@ -109,10 +109,11 @@
   "C:/Users/miapd/AppData/Local/Programs/MiKTeX/tex/latex/tools/xspace.sty" 1700599895 4545 9f5ea23ab1c91476c42749893f790666 ""
   "C:/Users/miapd/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/miapd/AppData/Local/Programs/MiKTeX/tex/latex/wrapfig/wrapfig.sty" 1044403200 26220 3701aebf80ccdef248c0c20dd062fea9 ""
-  "c:/Miguel/UAB/TERCER/LAB Termo/Repositori/reports/practiva_Ia/practica_Ia.tex" 1732658859 2354 ad5d6170fc1528b4afb1f05100ceb8fd ""
-  "practica_Ia.aux" 1732658861 628 9186d3bc7153889f54071d7ac74f4539 "pdflatex"
-  "practica_Ia.out" 1732658861 422 c11f61e70389e24ee3536c1ee25a1646 "pdflatex"
-  "practica_Ia.tex" 1732658859 2354 ad5d6170fc1528b4afb1f05100ceb8fd ""
+  "c:/Miguel/UAB/TERCER/LAB Termo/Repositori/reports/practiva_Ia/practica_Ia.tex" 1732747970 2602 8f107b56364d94e29986f28d3b12c066 ""
+  "name" 0 -1 0 ""
+  "practica_Ia.aux" 1732747978 628 9186d3bc7153889f54071d7ac74f4539 "pdflatex"
+  "practica_Ia.out" 1732747978 422 c11f61e70389e24ee3536c1ee25a1646 "pdflatex"
+  "practica_Ia.tex" 1732747970 2602 8f107b56364d94e29986f28d3b12c066 ""
   (generated)
   "practica_Ia.aux"
   "practica_Ia.log"
