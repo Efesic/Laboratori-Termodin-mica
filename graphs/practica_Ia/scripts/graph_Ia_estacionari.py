@@ -4,10 +4,12 @@ import numpy as np
 import pandas as pd
 from scipy.optimize import curve_fit
 
+version = input('Introdueix la versió: ')
 matplotlib.rcParams.update({'font.size': 12})
-df = pd.read_excel('graphs\practica_Ia\dades_estacionari.xlsx')
+df = pd.read_excel('graphs/practica_Ia/dades_estacionari.xlsx')
 
 T_amb = sum(df.iloc[0,6:9].tolist())/len(df.iloc[0,6:9].tolist())
+
 T_Al = df.iloc[8,1:13].tolist()
 T_Al = [a - T_amb for a in T_Al]
 T_Llau = df.iloc[9,1:13].tolist()
@@ -23,7 +25,7 @@ def exponencial(x,a,b):
 p0 = (90,-0.1)  # Suponiendo un decaimiento exponencial
 coef_Al, cov_Al = curve_fit(exponencial, dist, T_Al, p0=p0)
 coef_Llau, cov_Llau = curve_fit(exponencial,dist,T_Llau, p0=p0)
-coef_Fe, cov_Fe = curve_fit(exponencial,dist,T_Fe, p0=(120,-1))
+coef_Fe, cov_Fe = curve_fit(exponencial,dist,T_Fe, p0=(150,-1))
 
 print(coef_Al)
 print(coef_Llau)
@@ -48,7 +50,7 @@ plt.plot(x1,y1)
 plt.plot(x2,y2)
 plt.plot(x3,y3)
 
-plt.savefig('graphs/practica_Ia/plots/ln_theta.png')
+plt.savefig(f'graphs/practica_Ia/plots/ln_theta_v.{version}.png')
 
 
 
