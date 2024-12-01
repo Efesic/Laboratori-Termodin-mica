@@ -92,79 +92,88 @@ Segons el desenvolupament teòric que seguim no podem negligir les diferències 
 \begin{Figura}
   \centering
   \captionof{table}{\footnotesize{Diametres i radis de cada metall}}
-  \begin{tabular}{c|c|c}
-    a & a & a\\
+  \begin{tabular}{c|c}
+    Material & $r$ ($\pm$0,001) [cm] \\
     \hline\hline
-    b & b & b
+    Al & 1,524\\
+    Cu-Zn & 1,518\\
+    Fe & 1,573 
   \end{tabular}
   \label{Tau:diam_radis}
 \end{Figura}
-A més, al llarg de l'experiment el labortaori ha anat canviant lleugerament de temperatura ambient. Per aquest motiu a l'hora de calcular els increments de temperatura $\theta_x$ farem servir com a temperatura ambient de referència la mitjana de tres mesures (veure Taula \ref{T_ambient} a l'Annex). Per tant, el valor de la temperatura ambient al laboratori és: \(T_a = ( \pm )\,\text{K}\).\\\\
-A partir de les dades de temperatura obtingudes per a cada barra obtenim la gràfica de la Figura \ref{DeltaT_vs_d}. Es pot veure com l'increment de temperatura decau de forma exponencial amb la distància al punt calent, tal com es podia preveure del desenvolupament teòric (equació \eqref{sol_estacionaria}). Fent servir codi en Python obtenim un ajust exponencial de les dades mesurades. Aquest ajust es pot observar també a la figura \ref{DeltaT_vs_d}, i les dades dels coeficients ajustats a la Taula \ref{Tau:coef_exponencial}
+A més, al llarg de l'experiment el labortaori ha anat canviant lleugerament de temperatura ambient. Per aquest motiu a l'hora de calcular els increments de temperatura $\theta_x$ farem servir com a temperatura ambient de referència la mitjana de tres mesures (veure Taula \ref{T_ambient} a l'Annex). Per tant, el valor de la temperatura ambient al laboratori és: \(T_a = (24,73 \pm 0,40)\,\text{K}\).\\\\
+A partir de les dades de temperatura obtingudes per a cada barra obtenim la gràfica de la Figura \ref{DeltaT_vs_d}. Es pot veure com l'increment de temperatura decau de forma exponencial amb la distància al punt calent, tal com es podia preveure del desenvolupament teòric (Equació \eqref{sol_estacionaria}). Fent servir codi en Python obtenim un ajust exponencial de les dades mesurades. Aquest ajust es pot observar també a la Figura \ref{DeltaT_vs_d}, i les dades dels coeficients ajustats a la Taula \ref{Tau:coef_exponencial}
 \begin{Figura}
   \centering
-  \includegraphics[width = 1\linewidth]{../../graphs/practica_Ia/plots/ln_theta.png}\label{DeltaT_vs_d}
-  \captionof{figure}{\footnotesize{Prova}}
+  \includegraphics[width = 1\linewidth]{../../graphs/practica_Ia/plots/theta_vs_d_estacionaria.png}\label{DeltaT_vs_d}
+  \captionof{figure}{\footnotesize{theta vs d}}
 \end{Figura}
 
 \begin{Figura}
   \centering
   \captionof{table}{\footnotesize{Coeficients $a$ i $b$ de l'ajust exponencial $y = ae^{bx}$ per als punts experimentals mesurats per l'alumini, el llautó i el ferro.}}
   \begin{tabular}{c|c|c}
-    a & a & a\\
-    \hline
-    b & b & b
+    Material & $a$ [$^\circ$C] & $b$ ($\cdot 10^{-2}$) [cm$^{-1}$]\\
+    \hline\hline
+    Al & $95,11\pm0,97$ & $-3,025\pm0,051$\\
+    Cu-Zn & $81,5\pm2,2$ & $-4,53\pm0,21$ \\
+    Fe & $95,1\pm1,3$ & $-8,03\pm0,22$
   \end{tabular}
   \label{Tau:coef_exponencial}
 \end{Figura}
+
 Per a trobar el valor experimental de $p$ apliquem logaritme als valors experimentals per a poder realitzar una regressió lineal. Observem aquestes dades experimentals i les rectes de regressió a la Figura \ref{lnDeltaT_vs_d}. A la Taula \ref{Tau:dades_regressio} queden
 \begin{Figura}
   \centering
-  \includegraphics[width = 1\linewidth]{../../graphs/practica_Ia/plots/ln_theta.png}\label{lnDeltaT_vs_d}
-  \captionof{figure}{\footnotesize{Prova}}
+  \includegraphics[width = 1\linewidth]{../../graphs/practica_Ia/plots/reg_estacionaria.png}\label{lnDeltaT_vs_d}
+  \captionof{figure}{\footnotesize{Regressió lineal del logaritme de les temperatures per a cada material. Coeficients de regressió obtinguts: $r^2_{\text{Al}}=0.983$, $r^2_{\text{Cu-Zn}}=0.990$, $r^2_{\text{Fe}}=0.976$.}}
 \end{Figura}           
 
 \begin{Figura}
   \centering
-  \captionof{table}{\footnotesize{Dades regresió.}}
+  \captionof{table}{\footnotesize{Coeficients $a$ i $b$ de l'ajust lineal $y = ax + b$ per als punts experimentals mesurats per l'alumini, el llautó i el ferro.}}
   \begin{tabular}{c|c|c}
-    a & a & a\\
+    Material & $a$ ($\cdot 10^{-2}$) [cm$^{-1}$] & $b$\\
     \hline\hline
-    b & b & b
+    Al & $-2,97\pm0,12$ & $4,517\pm0,080$\\
+    Cu-Zn & $-3,40\pm0,11$ & $4,164\pm0,070$ \\
+    Fe & $-5,20\pm0,26$ & $4,07\pm0,17$
   \end{tabular}
   \label{Tau:dades_regressio}
 \end{Figura}
-Tenint en compte de l'equació \eqref{sol_estacionaria} què val $p$ i suposant el mateix valor constant del coeficient $\lambda$ per als tres metalls observem la temperatura d'un metall decau com $(Kr)^{1/2}$. Deduim doncs que la conductivitat tèrmica dels tres metalls és diferent 
+Tenint en compte de l'equació \eqref{sol_estacionaria}, què val $p$ (valor absolut de les $a$ a la Taula \ref{Tau:dades_regressio}) i suposant el mateix valor constant del coeficient $\lambda$ per als tres metalls observem la temperatura d'un metall decau com $(Kr)^{1/2}$. Deduim doncs que la conductivitat tèrmica dels tres metalls és diferent i que es compleix
 \begin{equation*}
-  K_a < K_b < K_c \hspace{3mm}
+  K_{\text{Fe}} < K_{\text{Cu-Zn}} < K_{\text{Al}} \hspace{3mm}
 \end{equation*}
 i que existeixen les relacions
 \begin{equation*}
   \frac{K_ir_i}{K_jr_j} = \frac{p^2_j}{p^2_i}
 \end{equation*}
-on $i$ i $j$ prenen valors dels diferents metalls que estem estudiant. Fent recerca a la literatura trobem el valor de la conductivitat tèrmica del ferro: \(K_{\text{Fe}} = (\pm) \, \text{V}/\text{mK}\). Fent servir les relacions anteriors i el valor trobat a la literatura podem calcular, aproximadament, els valors de la conductivitat tèrmica dels altres dos metalls. Podem comparar aquests valors obtinguts amb els que podem trobar a la literatura. S'observen totes aquestes dades a la Taula \ref{Tau:conductivitats_termiques_Fe}
+on $i$ i $j$ prenen valors dels diferents metalls que estem estudiant. Fent recerca a la literatura trobem el valor de la conductivitat tèrmica del ferro: \(K_{\text{Fe}} =  0,802\, \text{V}/\text{cmK}\). Fent servir les relacions anteriors i el valor trobat a la literatura podem calcular, aproximadament, els valors de la conductivitat tèrmica dels altres dos metalls. Podem comparar aquests valors obtinguts amb els que podem trobar a la literatura. S'observen totes aquestes dades a la Taula \ref{Tau:conductivitats_termiques_Fe}.
 \begin{Figura}
   \centering
-  \captionof{table}{\footnotesize{Comparació conductivitats tèrmiques - Patró ferro}}
+  \captionof{table}{\footnotesize{Comparació de la conductivitat tèrmica experimental i teòrica segons el patró ferro.}}
   \begin{tabular}{c|c|c}
-    a & a & a\\
+    Material & $K_{\text{exp}}$ [W/cmK] & $K_{\text{teo}}$ [W/cmK]\\
     \hline\hline
-    b & b & b
+    Al & $2,54\pm0,25$ & 2,37\\
+    Cu-Zn & $1,94\pm0,19$ & 1,09
   \end{tabular}
   \label{Tau:conductivitats_termiques_Fe}
 \end{Figura}
-Com a aproximació alternativa podem fer servir, en comptes del ferro, l'alumini com a patró. Aplicant les mateixes relacions que amb el ferro obtenim les dades de la Taula \ref{Tau:conductivitats_termiques_Al}
+Com a aproximació alternativa podem fer servir, en comptes del ferro, l'alumini com a patró. Aplicant les mateixes relacions que amb el ferro obtenim les dades de la Taula \ref{Tau:conductivitats_termiques_Al}.
 \begin{Figura}
   \centering
   \captionof{table}{\footnotesize{Comparació conductivitats tèrmiques - Patró alumini}}
   \begin{tabular}{c|c|c}
-    a & a & a\\
+    Material & $K_{\text{exp}}$ [W/cmK] & $K_{\text{teo}}$ [W/cmK]\\
     \hline\hline
-    b & b & b
+    Cu-Zn & $1,81\pm0,15$ & 1,09\\
+    Fe & $0,748\pm0,062$ & 0,802
   \end{tabular}
   \label{Tau:conductivitats_termiques_Al}
 \end{Figura}
-\textit{Explicaciones varias}
+\textit{Explicaciones varias: explicar la discrepancia del patron aluminio, explicar que el latón da mucho error y puede que $\lambda$ no sea ni constante ni igual para todos, comentar que $K$ puede variar con la temperatura.}
 \subsection{Estat permanent}
 A partir de les dades obtingudes experimentalment representem l'evolució temporal de la temperatura segons cada posició de la barra gran, Figura \ref{fig:T_vs_t_gran}, i de la barra petita, \ref{fig:T_vs_t_petita}.
 \begin{Figura}
@@ -201,11 +210,11 @@ Com a pas previ a observar el desfasament, calculem la temperatura mitjana a cad
 Observem com la temperatura mitjana decau amb la distància respecte a l'origen de referència. Clarament són pocs punts experimentals com per a traçar una corba de tendència. Tot i això, qualitativament els valors obtinguts s'apropen al que prediu la teoria. En cas de repetir l'experiment amb més termoparells repartits al llarg de cadascuna de les barres observariem un comportament de la mitjana temporal de la temperatura com el de l'Equació \eqref{prom_temp}. Si apliquem el mateix mètode que a l'estat estacionari per a obtenir el valor de $p$ obtenim els valors que s'observen a la Taula \ref{tau:pendent_mitjana}. A partir d'aquestes dades realitzem una regressió i observem, Figura \ref{fig:lin_reg} com s'apropen molt a un comportament lineal.
 \begin{Figura}
   \centering
-  \captionof{table}{\footnotesize{Valors ajustats per a una regressió lineal, amb model $y = mx + b$, on $y$ és el logaritme de les temperatures mitjanes i $x$ les posicions $x_i$.}}
+  \captionof{table}{\footnotesize{Valors ajustats per a una regressió lineal, amb model $y = ax + b$, on $y$ és el logaritme de les temperatures mitjanes i $x$ les posicions $x_i$.}}
   \begin{tabular}{c|c|c}
-     & $a$ ($\cdot 10^{-3}$) [cm$^{-1}$] & $b$ ($\cdot 10^{-2}$) \\ \hline\hline
-    B. gran & $-12,43\pm0,29$ & $44,04\pm0,30$\\
-    B. petita & $-19,75\pm0,42$ & $45,90\pm0,55$
+    Barra & $a$ ($\cdot 10^{-3}$) [cm$^{-1}$] & $b$ ($\cdot 10^{-2}$) \\ \hline\hline
+    gran & $-12,43\pm0,29$ & $44,04\pm0,30$\\
+    petita & $-19,75\pm0,42$ & $45,90\pm0,55$
   \end{tabular}
   \label{Tau:pendent_mitjana}
 \end{Figura}
@@ -262,10 +271,11 @@ Es pot observar com segueixen un comportament exponencial, similar al que hem vi
 \end{Figura}
 \begin{Figura}
   \centering
-  \captionof{table}{\footnotesize{pendents de les regressions (valor de m)}}
+  \captionof{table}{\footnotesize{Valors ajustats per a una regressió lineal, amb model $y = ax + b$, on $y$ és el logaritme de les amplituds i $x$ les posicions $x_i$.}}
   \begin{tabular}{c|c|c}
-    a & a & a \\
-    b & b & b 
+    Barra & $a$ ($\cdot 10^{-2}$) [cm$^{-1}$] & $b$ ($\cdot10^{-1}$) \\ \hline\hline
+    gran & $-8,74\pm0,16$ & $10,82\pm0,14$\\
+    petita & $-8,634\pm0,014$ & $16,862\pm0,018$ 
   \end{tabular}
   \label{tau:pendent_amplituds}
 \end{Figura} 
@@ -313,4 +323,6 @@ per ala barra gran i la barra petita, respectivament. Aleshores, calculem els va
 \end{equation*}
 \section{Conclusions}
 \end{multicols}
+\section{Referencies}
+http://hyperphysics.phy-astr.gsu.edu/hbasees/Tables/thrcn.html - d'on treiem les conductivitats termiques.
 \end{document}

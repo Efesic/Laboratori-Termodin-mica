@@ -1,0 +1,20 @@
+Referencias:
+
+datos de K_Al y K_Fe:
+https://en.wikipedia.org/wiki/Thermal_conductivities_of_the_elements_(data_page)#CRC
+
+para Fe -> 0,802 W/cmK
+para Al -> 2.37 W/cmK
+
+Esto viene del handbook:
+
+David R. Lide (ed), CRC Handbook of Chemistry and Physics, 84th Edition. CRC Press. Boca Raton, Florida, 2003; Section 12, Properties of Solids; Thermal and Physical Properties of Pure Metals / Thermal Conductivity of Crystalline Dielectrics / Thermal Conductivity of Metals and Semiconductors as a Function of Temperature
+
+
+datos de K_Cu-Zn 
+http://hyperphysics.phy-astr.gsu.edu/hbasees/Tables/thrcn.html
+
+para esto se ha de saber que el valor puede ser diferente a otra temperatura y según la composición
+
+para Cu63% a 296K -> 125 W/mK
+para Cu70% a 293K -> 109 W/mK
