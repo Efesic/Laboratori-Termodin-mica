@@ -47,7 +47,7 @@ coef_Fe, cov_Fe = curve_fit(exponencial,dist,theta_Fe, p0=(63,0.01))
 #Gràfic thetas
 plt.figure(figsize=(8,6))
 plt.scatter(dist,theta_Al,marker='D',color='firebrick',s=25,label='Alumini')
-plt.scatter(dist,theta_Ll,marker='D',color='limegreen',s=25,label='Llauto')
+plt.scatter(dist,theta_Ll,marker='D',color='limegreen',s=25,label='Llautó')
 plt.scatter(dist,theta_Fe,marker='D',color='royalblue',s=25,label='Ferro')
 
 plt.plot(x,coef_Al[0]*np.exp(coef_Al[1]*x),color='firebrick',linestyle='--')
@@ -74,6 +74,35 @@ print('Per a l\'alumini: ',[float(coef_Al[0]),float(coef_Al[1])], 'amb un error 
 print('Per al llautó: ',[float(coef_Ll[0]),float(coef_Ll[1])], 'amb un error de', [float(np.sqrt(cov_Ll[0][0])),float(np.sqrt(cov_Ll[1][1]))])
 print('Per al ferro: ',[float(coef_Fe[0]),float(coef_Fe[1])], 'amb un error de', [float(np.sqrt(cov_Fe[0][0])),float(np.sqrt(cov_Fe[1][1]))])
 
+#Càlcul de r2 de la regressió exponencial:
+print()
+print('Regressió lineal del logaritme de la temperatura:')
+print()
+y_data = theta_Al
+y_model = [coef_Al[0]*np.exp(coef_Al[1]*q) for q in dist]
+res = y_data - y_model
+ss_res = np.sum(res**2)
+ss_tot = np.sum((y_data - np.mean(y_data))**2)
+r2= 1 -(ss_res/ss_tot)
+print('r2 exponencial per al alumini: ',r2)
+
+print()
+y_data = theta_Ll
+y_model = [coef_Ll[0]*np.exp(coef_Ll[1]*q) for q in dist]
+res = y_data - y_model
+ss_res = np.sum(res**2)
+ss_tot = np.sum((y_data - np.mean(y_data))**2)
+r2= 1 -(ss_res/ss_tot)
+print('r2 exponencial per al llautó: ',r2)
+
+print()
+y_data = theta_Fe
+y_model = [coef_Fe[0]*np.exp(coef_Fe[1]*q) for q in dist]
+res = y_data - y_model
+ss_res = np.sum(res**2)
+ss_tot = np.sum((y_data - np.mean(y_data))**2)
+r2= 1 -(ss_res/ss_tot)
+print('r2 exponencial per al ferro: ',r2)
 
 #Regresió ln(theta)
 def lr(x,m,b):
@@ -85,7 +114,7 @@ coef_Fe, cov_Fe = curve_fit(lr,dist,np.log(theta_Fe))
 
 plt.figure(figsize=(8,6))
 plt.scatter(dist,np.log(theta_Al),marker='D',color='firebrick',s=25,label='Alumini')
-plt.scatter(dist,np.log(theta_Ll),marker='D',color='limegreen',s=25,label='Llauto')
+plt.scatter(dist,np.log(theta_Ll),marker='D',color='limegreen',s=25,label='Llautó')
 plt.scatter(dist,np.log(theta_Fe),marker='D',color='royalblue',s=25,label='Ferro')
 
 plt.plot(x,coef_Al[0]*x +coef_Al[1],color='firebrick',linestyle='--')
@@ -162,10 +191,10 @@ print('Valor de K_Fe: ',K_Fe,'amb una incertesa de ',u_K_Fe)
 K_pat_Fe = 0.802 # [W/Kcm]
 
 K_pf_Al = (K_pat_Fe*r_Fe*coef_Fe[0]**2)/(r_Al*coef_Al[0]**2)
-u_K_pf_Al = np.sqrt( (0.001*K_pat_Fe*coef_Fe[0]**2 / (r_Al*coef_Al[0]**2))**2 + (np.sqrt(cov_Fe[0][0])*K_pat_Fe*r_Fe*2*coef_Fe[0] /(r_Al*coef_Al[0]**2))**2 + (0.001*K_pat_Fe*r_Fe*coef_Fe[0]**2/(r_Al**2 * coef_Al[0]**2))**2 + (cov_Al[0][0]*2*K_pat_Fe*coef_Fe[0]**2 / (r_Al*coef_Al[0]**3))**2)
+u_K_pf_Al = np.sqrt( (0.001*K_pat_Fe*coef_Fe[0]**2 / (r_Al*coef_Al[0]**2))**2 + (np.sqrt(cov_Fe[0][0])*K_pat_Fe*r_Fe*2*coef_Fe[0] /(r_Al*coef_Al[0]**2))**2 + (0.001*K_pat_Fe*r_Fe*coef_Fe[0]**2/(r_Al**2 * coef_Al[0]**2))**2 + (np.sqrt(cov_Al[0][0])*2*K_pat_Fe*coef_Fe[0]**2 / (r_Al*coef_Al[0]**3))**2)
 
 K_pf_Ll = (K_pat_Fe*r_Fe*coef_Fe[0]**2)/(r_Ll*coef_Ll[0]**2)
-u_K_pf_Ll = np.sqrt( (0.001*K_pat_Fe*coef_Fe[0]**2 / (r_Ll*coef_Ll[0]**2))**2 + (np.sqrt(cov_Fe[0][0])*K_pat_Fe*r_Fe*2*coef_Fe[0] /(r_Ll*coef_Ll[0]**2))**2 + (0.001*K_pat_Fe*r_Fe*coef_Fe[0]**2/(r_Ll**2 * coef_Ll[0]**2))**2 + (cov_Ll[0][0]*2*K_pat_Fe*coef_Fe[0]**2 / (r_Ll*coef_Ll[0]**3))**2)
+u_K_pf_Ll = np.sqrt( (0.001*K_pat_Fe*coef_Fe[0]**2 / (r_Ll*coef_Ll[0]**2))**2 + (np.sqrt(cov_Fe[0][0])*K_pat_Fe*r_Fe*2*coef_Fe[0] /(r_Ll*coef_Ll[0]**2))**2 + (0.001*K_pat_Fe*r_Fe*coef_Fe[0]**2/(r_Ll**2 * coef_Ll[0]**2))**2 + (np.sqrt(cov_Ll[0][0])*2*K_pat_Fe*coef_Fe[0]**2 / (r_Ll*coef_Ll[0]**3))**2)
 
 print()
 print('Patró ferro: ',K_pat_Fe)
@@ -177,10 +206,10 @@ print('Patró ferro, llautó: ',K_pf_Ll, 'amb una incertesa de ',u_K_pf_Ll)
 K_pat_Ll = 1.25 # [W/Kcm]
 
 K_pl_Al = (K_pat_Ll*r_Ll*coef_Ll[0]**2)/(r_Al*coef_Al[0]**2)
-u_K_pl_Al = np.sqrt( (0.001*K_pat_Ll*coef_Ll[0]**2 / (r_Al*coef_Al[0]**2))**2 + (np.sqrt(cov_Ll[0][0])*K_pat_Ll*r_Ll*2*coef_Ll[0] /(r_Al*coef_Al[0]**2))**2 + (0.001*K_pat_Ll*r_Ll*coef_Ll[0]**2/(r_Al**2 * coef_Al[0]**2))**2 + (cov_Al[0][0]*2*K_pat_Ll*coef_Ll[0]**2 / (r_Al*coef_Al[0]**3))**2)
+u_K_pl_Al = np.sqrt( (0.001*K_pat_Ll*coef_Ll[0]**2 / (r_Al*coef_Al[0]**2))**2 + (np.sqrt(cov_Ll[0][0])*K_pat_Ll*r_Ll*2*coef_Ll[0] /(r_Al*coef_Al[0]**2))**2 + (0.001*K_pat_Ll*r_Ll*coef_Ll[0]**2/(r_Al**2 * coef_Al[0]**2))**2 + (np.sqrt(cov_Al[0][0])*2*K_pat_Ll*coef_Ll[0]**2 / (r_Al*coef_Al[0]**3))**2)
 
 K_pl_Fe = (K_pat_Ll*r_Ll*coef_Ll[0]**2)/(r_Fe*coef_Fe[0]**2)
-u_K_pl_Fe = np.sqrt( (0.001*K_pat_Ll*coef_Ll[0]**2 / (r_Fe*coef_Fe[0]**2))**2 + (np.sqrt(cov_Ll[0][0])*K_pat_Ll*r_Ll*2*coef_Ll[0] /(r_Fe*coef_Fe[0]**2))**2 + (0.001*K_pat_Ll*r_Ll*coef_Ll[0]**2/(r_Fe**2 * coef_Fe[0]**2))**2 + (cov_Fe[0][0]*2*K_pat_Ll*coef_Ll[0]**2 / (r_Fe*coef_Fe[0]**3))**2)
+u_K_pl_Fe = np.sqrt( (0.001*K_pat_Ll*coef_Ll[0]**2 / (r_Fe*coef_Fe[0]**2))**2 + (np.sqrt(cov_Ll[0][0])*K_pat_Ll*r_Ll*2*coef_Ll[0] /(r_Fe*coef_Fe[0]**2))**2 + (0.001*K_pat_Ll*r_Ll*coef_Ll[0]**2/(r_Fe**2 * coef_Fe[0]**2))**2 + (np.sqrt(cov_Fe[0][0])*2*K_pat_Ll*coef_Ll[0]**2 / (r_Fe*coef_Fe[0]**3))**2)
 
 print()
 print('Patró llautó: ',K_pat_Ll)
@@ -192,12 +221,49 @@ print('Patró llautó, ferro: ',K_pl_Fe, 'amb una incertesa de ',u_K_pl_Fe)
 K_pat_Al = 2.37 # [W/Kcm]
 
 K_pa_Ll = (K_pat_Al*r_Al*coef_Al[0]**2)/(r_Ll*coef_Ll[0]**2)
-u_K_pa_Ll = np.sqrt( (0.001*K_pat_Al*coef_Al[0]**2 / (r_Ll*coef_Ll[0]**2))**2 + (np.sqrt(cov_Al[0][0])*K_pat_Al*r_Al*2*coef_Al[0] /(r_Ll*coef_Ll[0]**2))**2 + (0.001*K_pat_Al*r_Al*coef_Al[0]**2/(r_Ll**2 * coef_Ll[0]**2))**2 + (cov_Ll[0][0]*2*K_pat_Al*coef_Al[0]**2 / (r_Ll*coef_Ll[0]**3))**2)
+u_K_pa_Ll = np.sqrt( (0.001*K_pat_Al*coef_Al[0]**2 / (r_Ll*coef_Ll[0]**2))**2 + (np.sqrt(cov_Al[0][0])*K_pat_Al*r_Al*2*coef_Al[0] /(r_Ll*coef_Ll[0]**2))**2 + (0.001*K_pat_Al*r_Al*coef_Al[0]**2/(r_Ll**2 * coef_Ll[0]**2))**2 + (np.sqrt(cov_Ll[0][0])*2*K_pat_Al*coef_Al[0]**2 / (r_Ll*coef_Ll[0]**3))**2)
 
 K_pa_Fe = (K_pat_Al*r_Al*coef_Al[0]**2)/(r_Fe*coef_Fe[0]**2)
-u_K_pa_Fe = np.sqrt( (0.001*K_pat_Al*coef_Al[0]**2 / (r_Fe*coef_Fe[0]**2))**2 + (np.sqrt(cov_Al[0][0])*K_pat_Al*r_Al*2*coef_Al[0] /(r_Fe*coef_Fe[0]**2))**2 + (0.001*K_pat_Al*r_Al*coef_Al[0]**2/(r_Fe**2 * coef_Fe[0]**2))**2 + (cov_Fe[0][0]*2*K_pat_Al*coef_Al[0]**2 / (r_Fe*coef_Fe[0]**3))**2)
+u_K_pa_Fe = np.sqrt( (0.001*K_pat_Al*coef_Al[0]**2 / (r_Fe*coef_Fe[0]**2))**2 + (np.sqrt(cov_Al[0][0])*K_pat_Al*r_Al*2*coef_Al[0] /(r_Fe*coef_Fe[0]**2))**2 + (0.001*K_pat_Al*r_Al*coef_Al[0]**2/(r_Fe**2 * coef_Fe[0]**2))**2 + (np.sqrt(cov_Fe[0][0])*2*K_pat_Al*coef_Al[0]**2 / (r_Fe*coef_Fe[0]**3))**2)
 
 print()
 print('Patró alumini: ',K_pat_Al)
 print('Patró alumini, llautó: ',K_pa_Ll, 'amb una incertesa de ',u_K_pa_Ll)
 print('Patró alumini, ferro: ',K_pa_Fe, 'amb una incertesa de ',u_K_pa_Fe)
+
+#Comparació de les aportacions de potència
+
+#Fourier
+def P_F(K,r,theta,p):
+    return K*np.pi*r**2*theta[0]*p**2
+#Newton
+def P_N(la,theta,r,L):
+    return la*theta[0]*2*np.pi*r*L
+#Stefan-Boltzmann - Considerant un absorbent perfecte
+sigma = 5.6697*10**(-12)
+def P_SB(r,L,T):
+    return sigma*2*np.pi*r*L*(T[0]**4)
+
+print()
+
+lam_Al = 0.5*K_Al*r_Al*coef_Al[0]**2
+print('Potencies per a l\'alumini:', [float(P_F(K_Al,r_Al,theta_Al,coef_Al[0])),float(P_N(lam_Al,theta_Al,r_Al,110)),float(P_SB(r_Al,110,T_Al))])
+
+lam_Ll = 0.5*K_Ll*r_Ll*coef_Ll[0]**2
+print('Potencies per aa llautó:', [float(P_F(K_Ll,r_Ll,theta_Ll,coef_Ll[0])),float(P_N(lam_Ll,theta_Ll,r_Ll,110)),float(P_SB(r_Ll,110,T_Ll))])
+
+lam_Fe = 0.5*K_Fe*r_Fe*coef_Fe[0]**2
+print('Potencies per al ferro:', [float(P_F(K_Fe,r_Fe,theta_Fe,coef_Fe[0])),float(P_N(lam_Fe,theta_Fe,r_Fe,110)),float(P_SB(r_Fe,110,T_Fe))])
+
+print()
+
+r_g = 2.6
+
+r_p = 1.5
+p_g = 2.97*10**(-2)
+u_p_g = 0.12*10**(-2)
+
+u_lambda_g = np.sqrt((u_K_pf_Al*p_g**2*r_g*0.5)**2 +(u_p_g*K_pf_Al*p_g*r_g)**2+(0.1*K_pf_Al*p_g**2*0.5)**2)
+u_lambda_p = np.sqrt((u_K_pf_Al*p_g**2*r_p*0.5)**2 +(u_p_g*K_pf_Al*p_g*r_p)**2+(0.1*K_pf_Al*p_g**2*0.5)**2)
+print('Càlcul de lambda per a l\'alumini segons el patró ferro (suposant mesures de la barra gran): ',0.5*K_pf_Al*(p_g)**2 * r_g, 'amb un error de ',u_lambda_g)
+print('Càlcul de lambda per a l\'alumini segons el patró ferro (suposant mesures de la barra petita): ',0.5*K_pf_Al*(p_g)**2 * r_p, 'amb un error de ',u_lambda_p)

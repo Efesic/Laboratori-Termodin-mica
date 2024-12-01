@@ -60,10 +60,19 @@
 \begin{center}
     \textsc{\textit{RESUM}}
 \end{center}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. \cite{prueba}
+En aquesta pràctica s'estudien els fenòmens de transport de la calor en metalls. Es construeix un model teòric del nostre sistema a partir de les equacions de Fourier i Newton i de la llei d'Stefan-Boltmann. A partir de dos sistemes formats principalment per barres metàl·liques i una manta calefactora comprovem experimentalment la coherència del model teòric presentat i discutim les seves limitacions i assumpcions. 
 \vspace{0.5cm}
 \begin{multicols}{2}
 \section{Introducció i objectius}
+\begin{equation}\label{Fourier}
+  \frac{\text{d}Q}{\text{d}t} = -KA \frac{\text{d}T}{\text{x}}
+\end{equation}
+\begin{equation}\label{Newton}
+  \frac{\text{d}Q}{\text{d}t} = -\lambda A(T-T_a)
+\end{equation}
+\begin{equation}\label{Stefan-Boltzmann}
+  \frac{\text{d}Q}{\text{d}t} = e\sigma_{\text{SB}}AT^{4}
+\end{equation}
 \begin{equation}\label{sol_estacionaria}
   \theta(x) = \theta_0e^{-px}
 \end{equation}
@@ -101,17 +110,17 @@ Segons el desenvolupament teòric que seguim no podem negligir les diferències 
   \end{tabular}
   \label{Tau:diam_radis}
 \end{Figura}
-A més, al llarg de l'experiment el labortaori ha anat canviant lleugerament de temperatura ambient. Per aquest motiu a l'hora de calcular els increments de temperatura $\theta_x$ farem servir com a temperatura ambient de referència la mitjana de tres mesures (veure Taula \ref{T_ambient} a l'Annex). Per tant, el valor de la temperatura ambient al laboratori és: \(T_a = (24,73 \pm 0,40)\,\text{K}\).\\\\
+A més, al llarg de l'experiment el labortaori ha anat canviant lleugerament de temperatura ambient. Per aquest motiu a l'hora de calcular els increments de temperatura $\theta_x$ farem servir com a temperatura ambient de referència la mitjana de tres mesures (veure Taula \ref{T_ambient} a l'Annex). Per tant, el valor de la temperatura ambient al laboratori és: \(T_a = (24,73 \pm 0,19)\,^\circ\text{C}\).\\\\
 A partir de les dades de temperatura obtingudes per a cada barra obtenim la gràfica de la Figura \ref{DeltaT_vs_d}. Es pot veure com l'increment de temperatura decau de forma exponencial amb la distància al punt calent, tal com es podia preveure del desenvolupament teòric (Equació \eqref{sol_estacionaria}). Fent servir codi en Python obtenim un ajust exponencial de les dades mesurades. Aquest ajust es pot observar també a la Figura \ref{DeltaT_vs_d}, i les dades dels coeficients ajustats a la Taula \ref{Tau:coef_exponencial}
 \begin{Figura}
   \centering
   \includegraphics[width = 1\linewidth]{../../graphs/practica_Ia/plots/theta_vs_d_estacionaria.png}\label{DeltaT_vs_d}
-  \captionof{figure}{\footnotesize{theta vs d}}
+  \captionof{figure}{\footnotesize{Increment de temperatura $\theta$ respecte a la disància, punts experimentals i regressió exponencial. Coeficients de regressió: $r^2_{\text{Al}} = 0.999$, $r^2_{\text{Cu-Zn}} = 0.991$ i $r^2_{\text{Fe}} = 0.998$}}
 \end{Figura}
 
 \begin{Figura}
   \centering
-  \captionof{table}{\footnotesize{Coeficients $a$ i $b$ de l'ajust exponencial $y = ae^{bx}$ per als punts experimentals mesurats per l'alumini, el llautó i el ferro.}}
+  \captionof{table}{\footnotesize{Coeficients $a$ i $b$ de l'ajust exponencial, amb model $y = ae^{bx}$, per als punts experimentals mesurats per l'alumini, el llautó i el ferro.}}
   \begin{tabular}{c|c|c}
     Material & $a$ [$^\circ$C] & $b$ ($\cdot 10^{-2}$) [cm$^{-1}$]\\
     \hline\hline
@@ -131,7 +140,7 @@ Per a trobar el valor experimental de $p$ apliquem logaritme als valors experime
 
 \begin{Figura}
   \centering
-  \captionof{table}{\footnotesize{Coeficients $a$ i $b$ de l'ajust lineal $y = ax + b$ per als punts experimentals mesurats per l'alumini, el llautó i el ferro.}}
+  \captionof{table}{\footnotesize{Coeficients $a$ i $b$ de l'ajust lineal, amb model $y = ax + b$, per al logaritme de l'increment de temperatura $\theta$ per a l'alumini, el llautó i el ferro.}}
   \begin{tabular}{c|c|c}
     Material & $a$ ($\cdot 10^{-2}$) [cm$^{-1}$] & $b$\\
     \hline\hline
@@ -149,31 +158,57 @@ i que existeixen les relacions
 \begin{equation*}
   \frac{K_ir_i}{K_jr_j} = \frac{p^2_j}{p^2_i}
 \end{equation*}
-on $i$ i $j$ prenen valors dels diferents metalls que estem estudiant. Fent recerca a la literatura trobem el valor de la conductivitat tèrmica del ferro: \(K_{\text{Fe}} =  0,802\, \text{V}/\text{cmK}\). Fent servir les relacions anteriors i el valor trobat a la literatura podem calcular, aproximadament, els valors de la conductivitat tèrmica dels altres dos metalls. Podem comparar aquests valors obtinguts amb els que podem trobar a la literatura. S'observen totes aquestes dades a la Taula \ref{Tau:conductivitats_termiques_Fe}.
+on $i$ i $j$ prenen valors dels diferents metalls que estem estudiant. Fent recerca a la literatura trobem el valor de la conductivitat tèrmica del ferro: \(K_{\text{Fe}} =  0,802\, \text{W}/\text{cmK}\). Fent servir les relacions anteriors i el valor trobat a la literatura podem calcular, aproximadament, els valors de la conductivitat tèrmica dels altres dos metalls. Podem comparar aquests valors obtinguts amb els que podem trobar a la literatura. S'observen totes aquestes dades a la Taula \ref{Tau:conductivitats_termiques_Fe}.
 \begin{Figura}
   \centering
   \captionof{table}{\footnotesize{Comparació de la conductivitat tèrmica experimental i teòrica segons el patró ferro.}}
   \begin{tabular}{c|c|c}
     Material & $K_{\text{exp}}$ [W/cmK] & $K_{\text{teo}}$ [W/cmK]\\
     \hline\hline
-    Al & $2,54\pm0,25$ & 2,37\\
-    Cu-Zn & $1,94\pm0,19$ & 1,09
+    Al & $2,54\pm0,28$ & 2,37\\
+    Cu-Zn & $1,94\pm0,21$ & 1,09
   \end{tabular}
   \label{Tau:conductivitats_termiques_Fe}
 \end{Figura}
 Com a aproximació alternativa podem fer servir, en comptes del ferro, l'alumini com a patró. Aplicant les mateixes relacions que amb el ferro obtenim les dades de la Taula \ref{Tau:conductivitats_termiques_Al}.
 \begin{Figura}
   \centering
-  \captionof{table}{\footnotesize{Comparació conductivitats tèrmiques - Patró alumini}}
+  \captionof{table}{\footnotesize{Comparació de la conductivitat tèrmica experimental i teòrica segons el patró alumini.}}
   \begin{tabular}{c|c|c}
     Material & $K_{\text{exp}}$ [W/cmK] & $K_{\text{teo}}$ [W/cmK]\\
     \hline\hline
-    Cu-Zn & $1,81\pm0,15$ & 1,09\\
-    Fe & $0,748\pm0,062$ & 0,802
+    Cu-Zn & $1,81\pm0,17$ & 1,09\\
+    Fe & $0,748\pm0,078$ & 0,802
   \end{tabular}
   \label{Tau:conductivitats_termiques_Al}
 \end{Figura}
-\textit{Explicaciones varias: explicar la discrepancia del patron aluminio, explicar que el latón da mucho error y puede que $\lambda$ no sea ni constante ni igual para todos, comentar que $K$ puede variar con la temperatura.}
+Observant aquestes dues darreres taules notem com el càlcul experimental de $K_{\text{Al}}$ segons el patró ferro i de $K_{\text{Fe}}$ segons el patró alumini són coherents amb les dades obtingudes de la literatura d'aquests mateixos coeficients. En canvi, el valor de $K_{\text{Cu-Zn}}$ tant per al patró ferro com per al patró alumini difereix, el valor que trobem a la literatura no entra dins de les incerteses. Això ens porta a deduïr que possiblement la hipòtesi inicial de considerar les $\lambda$ iguals per a tots tres materials no era correcta. També cal considerar que la constant de conductivitat tèrmica pot dependre de la temperatura i d'altres propietats micorscòpiques de cada material, i considerar-la constant és una simplificació.\\\\
+D'igual manera, les pèrdues per convecció sofreixen una altra simplificació a l'hora de calcular l'àrea de contacte amb l'aire, el nostre model considera una barra sense forats. Tot i això aquesta simplificació no ens porta a obtenir resultats incoherents amb la teoria. Si les barres fossin totalment buides aquest canvi de l'àrea seria rellevant i canviarien els nostres resultats experimentals, hauriem de revisar el desenvolupament teòric.\\\\
+Com a darrera simplificació que pateixen els nostres resultats podem fixar-nos en que no considerem els efectectes de la radiació. Comparem les aportacions de conductivitat, convecció i radiació. Observant les expressions de les Equacions \eqref{Fourier}, \eqref{Newton} i \eqref{Stefan-Boltzmann} podem observar que per al nostre sistema es compleixen els següents llindars:
+\begin{equation*}
+  \left|{P_{\text{F}}}\right| \leq \left| P_{\text{F}}(x=0) \right| 
+\end{equation*}
+per a l'aportació de l'equació de Fourier,
+\begin{equation*}
+  \left|P_{\text{N}} \right| \leq \left| P_{\text{N}}(T=T_{\text{max}}) \right|
+\end{equation*}
+per a l'aportació de l'equació de Newton i
+\begin{equation*}
+  \left|P_{\text{SB}} \right| \leq \left| P_{\text{SB}}(T=T_{\text{max}}) \right|
+\end{equation*}
+per a l'aportació de la llei d'Stefan-Boltzmann. Calculant aquests llindars tenint en compte que $T = \theta(x,t) + T_a$ obtenim els resultats de la Taula \ref{tau:comp_potencies}.
+\begin{Figura}
+  \centering
+  \captionof{table}{\footnotesize{Taula de potència llindar del sistema per a cada material i cada aportació de calor. S'ometen les incerteses per a no distreure la comparació.}}
+  \begin{tabular}{c|c|c|c}
+    Material & $P_{\text{F}}$ [W] & $P_{\text{N}}$ [W] & $P_{\text{SB}}$ [W]\\ \hline\hline
+    Al & 43,73 & 4810,66 & 0,004\\
+    Cu-Zn & 17,74 & 1951,38 & 0,003\\
+    Fe & 1,70 & 187,08 & 0,002
+  \end{tabular}
+  \label{tau:comp_potencies}
+\end{Figura}
+Cal aclarir novament que aquestes dades es tracten de llindars, la potència absorbida o emesa pel sistema és diferent a cada punt i depèn d'altres factors, per exemple del ventilador que manté un flux d'aire al voltant de les barres. Tot i això, les dades ens són suficients per a notar que l'aportació de pèrdues per radiació, seguin la llei d'Stefan-Boltzmann és molt petita en comparació amb les altres dos. Sabent això concluim que podem menysprear del nostre model de l'aportació de la radiació.
 \subsection{Estat permanent}
 A partir de les dades obtingudes experimentalment representem l'evolució temporal de la temperatura segons cada posició de la barra gran, Figura \ref{fig:T_vs_t_gran}, i de la barra petita, \ref{fig:T_vs_t_petita}.
 \begin{Figura}
@@ -309,19 +344,32 @@ per a la barra gran i
 per a la barra petita.\\\\
 Sabent tant els valors de $h$ i de $m$ per a cada barra podem calcular el valor de $\lambda$ segons l'equació \ref{valor_lambda}. Fem servir el valor de la conductivitat tèrmica de l'alumini trobat a la literatura a la secció anterior i com a radis fem servir
 \begin{equation*}
-  r_{\text{gran}} = (2,55\pm0.1)\, \text{cm}
+  r_{\text{gran}} = (2,6\pm0.1)\, \text{cm}
 \end{equation*}
 \begin{equation*}
   r_{\text{petita}} = (1,5\pm0.1)\, \text{cm}
 \end{equation*}
 per ala barra gran i la barra petita, respectivament. Aleshores, calculem els valors de $\lambda$ i obtenim
 \begin{equation*}
-  \lambda_{\text{gran}} = (-0.08\pm0.72)\cdot 10^{-2} \, \text{W}/\text{Kcm}^{2}
+  \lambda_{\text{gran}} = (-0.21\pm0.72)\cdot 10^{-2} \, \text{W}/\text{Kcm}^{2}
 \end{equation*}
 \begin{equation*}
-  \lambda_{\text{petita}} = (-0.04\pm0.19)\cdot 10^{-2} \, \text{W}/\text{K}\text{cm}^{2}
+  \lambda_{\text{petita}} = (-0.07\pm0.19)\cdot 10^{-2} \, \text{W}/\text{K}\text{cm}^{2}
 \end{equation*}
+Observem com el valor del coeficient de convecció pren un valor amb molta incertesa. També es pot notar com aquest coeficient creix amb l'àrea de la barra. Tot i això, no podem dir que els resultats coincideixen amb la realitat. Comparant amb resultats calculats amb les dades de la secció anterior aquests coeficients poden entrar dins del esperat, però només per a causa de tenir un error molt alt. Observem aquests coeficients a la Taula \ref{lambdas_alum_est}.
+\begin{Figura}
+  \centering
+  \captionof{table}{\footnotesize{Coeficients de convecció per a una barra d'alumini gran i petita (\(r_g=2.6\,\text{cm}\) i \(r_p =1.5\,\text{cm}\)) calculats amb les dades de la secció de l'estat estacionari.}}
+  \begin{tabular}{c|c}
+    Barra & $\lambda$ $(\cdot 10^{-2})$ [W/cmK]\\ \hline \hline
+    Gran & $0,291\pm0,042$\\
+    Petita & $0,168\pm0,026$ 
+  \end{tabular}
+\end{Figura}
 \section{Conclusions}
+Al llarg de la pràctica s'ha posat de manifest com les diferents equacions de transport de calor defineixen el comportament del nostre sistema. Tenint en compte aquestes aportacions de cada equació, hem obtingut dues solucions per a diferents sistemes termodinàmics.\\\\
+Per al primer sistema trobem una solució estacionària. Amb les mesures experimentals hem observat com el comportament de la temperatura a cada barra és coherent amb la solució del nostre model. Aquestes dades ens han permès trobar relacions entre els coeficients de conducció tèrmica dels materials amb que treballem. Comparant amb dades de la literatura, els nostres resultats són coherents per a la barra de ferro i per a la barra d'alumini. Tot i això, per a la barra de llautó els resultats difereixen, exposant que possiblement el model falla en algún punt, i aquest error pot provenir de diverses fonts. Dos possibles fonts (a part de l'error experimental) són considerar el coeficient de convecció constant per als tres metalls, una altra, considerar que el coeficient de conducció tèrmica no depèn de la temperatura. Els nostres resultats experimentals també han permès observar la poca aportació de potència que prové de la radiació.\\\\
+Per al segón sistema trobem una solució permanent. Les característiques d'aquest sistema fan que a cada barra es generi una ona tèrmica que es propaga longitudinalment. Hem observat que la solució del model és coherent amb les nostres dades experimentals, podent així calcular diferents paràmetres que definien la ona tèrmica com el període de les oscil·lacions o el temps de refredament o escalfament. Hem observat que, encara que el comportament sigui oscil·latori, encara se segueix complint el decaiment exponencial de la temperatura envers la distància, de forma anàloga a com ho feia el sistema anterior. No només això, s'ha comprovat experimentalment també que existeix un desfasament de la ona que depèn de la distància. Aquest desfasament és coherent amb la solució del model.
 \end{multicols}
 \section{Referencies}
 http://hyperphysics.phy-astr.gsu.edu/hbasees/Tables/thrcn.html - d'on treiem les conductivitats termiques.

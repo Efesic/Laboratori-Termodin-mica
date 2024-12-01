@@ -117,6 +117,7 @@ def lr(x,m,b):
 coefg_lr, covg_lr = curve_fit(lr,xg_i,np.log(pg_i),sigma=0.001)
 coefp_lr, covp_lr = curve_fit(lr,xp_i,np.log(pp_i),sigma=0.001)
 
+
 plt.figure(figsize=(8,6))
 plt.errorbar(xg_i,np.log(pg_i),xerr=u_x_i,color='k',linestyle='',capsize=5,elinewidth=0.7,markersize=4,marker='D',label='Punts experimentals')
 plt.plot(xg_lr,coefg_lr[0]*xg_lr+coefg_lr[1],color='darkolivegreen',linestyle='--',label='Barra gran')
@@ -360,8 +361,8 @@ K = 2.37
 r_gran = 5.1*0.5
 r_petit = 3*0.5
 u_r = 0.1
-lambda_gran = 0.5*(K*(m_gran**2 - gran_general[0]**2))
-lambda_petita = 0.5*(K*(m_petita**2 - petit_general[0]**2))
+lambda_gran = 0.5*(K*r_gran*(m_gran**2 - gran_general[0]**2))
+lambda_petita = 0.5*(K*r_petit*(m_petita**2 - petit_general[0]**2))
 
 u_lambda_gran = np.sqrt(u_r**2 * (0.5*K*(m_gran**2-gran_general[0]**2))**2 + (u_m_gran*K*m_gran*r_gran)**2 + (gran_general[1]*K*r_gran*gran_general[0])**2)
 u_lambda_petita = np.sqrt(u_r**2 * (0.5*K*(m_petita**2-petit_general[0]**2))**2 + (u_m_petita*K*m_petita*r_petit)**2 + (petit_general[1]*K*r_petit*petit_general[0])**2)

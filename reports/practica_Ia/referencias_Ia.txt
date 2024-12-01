@@ -18,3 +18,40 @@ para esto se ha de saber que el valor puede ser diferente a otra temperatura y s
 
 para Cu63% a 296K -> 125 W/mK
 para Cu70% a 293K -> 109 W/mK
+
+
+---------------
+En scihub:
+
+- Para decir que la K depende de la temperatura:
+Ausloos, M.. (2001). Encyclopedia of Materials: Science and Technology || Thermal Conductivity. , (), 9151–9155. doi:10.1016/B0-08-043152-6/01650-8 
+
+M. Ausloos,
+Thermal Conductivity,
+Editor(s): K.H. Jürgen Buschow, Robert W. Cahn, Merton C. Flemings, Bernhard Ilschner, Edward J. Kramer, Subhash Mahajan, Patrick Veyssière,
+Encyclopedia of Materials: Science and Technology,
+Elsevier,
+2001,
+Pages 9151-9155,
+ISBN 9780080431529,
+https://doi.org/10.1016/B0-08-043152-6/01650-8.
+(https://www.sciencedirect.com/science/article/pii/B0080431526016508)
+
+
+
+en formato bib:
+@incollection{AUSLOOS20019151,
+title = {Thermal Conductivity},
+editor = {K.H. Jürgen Buschow and Robert W. Cahn and Merton C. Flemings and Bernhard Ilschner and Edward J. Kramer and Subhash Mahajan and Patrick Veyssière},
+booktitle = {Encyclopedia of Materials: Science and Technology},
+publisher = {Elsevier},
+address = {Oxford},
+pages = {9151-9155},
+year = {2001},
+isbn = {978-0-08-043152-9},
+doi = {https://doi.org/10.1016/B0-08-043152-6/01650-8},
+url = {https://www.sciencedirect.com/science/article/pii/B0080431526016508},
+author = {M. Ausloos}
+}
+
+--------------------------------
