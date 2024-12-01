@@ -1,0 +1,30 @@
+\begin{thebibliography}{1}
+
+\bibitem{Ausloos}
+M.~Ausloos.
+\newblock Thermal conductivity.
+\newblock In K.H.~Jürgen Buschow, Robert~W. Cahn, Merton~C. Flemings, Bernhard
+  Ilschner, Edward~J. Kramer, Subhash Mahajan, and Patrick Veyssière, editors,
+  {\em Encyclopedia of Materials: Science and Technology}, pages 9151--9155.
+  Elsevier, Oxford, 2001.
+
+\bibitem{guia_lab}
+Departament de~termodinàmica.
+\newblock Manuals de la uab.
+\newblock {\em Campus Virtual}, 2022.
+
+\bibitem{CRC}
+David~R. Lide.
+\newblock {\em CRC Handbook of Chemistry and Physics, 84th Edition}.
+\newblock CRC Press, Boca Raton, Florida, 2003.
+\newblock Properties of Solids; Thermal and Physical Properties of Pure Metals;
+  Thermal Conductivity of Crystalline Dielectrics; Thermal Conductivity of
+  Metals and Semiconductors as a Function of Temperature.
+
+\bibitem{Young}
+Hugh~D. Young, Roger~A. Freedman, and A.~Lewis Ford.
+\newblock {\em Sears and Zemansky's University Physics: With Modern Physics}.
+\newblock Pearson, 13th edition, 2012.
+\newblock Table 17.5, Section 17.7, Page 571.
+
+\end{thebibliography}

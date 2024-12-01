@@ -335,17 +335,17 @@ def trobar_h(i,j,maxim_i,maxim_j,temp):
 
 print()
 print('Mesures de h per a la barra gran')
-print('Valor de h segons calcular sobre 0 i 10 de la barra gran: ', trobar_h(10,0,maxims_t_g10,maxims_t_g0,temps)[0])
-print('Valor de h segons calcular sobre 10 i 15 de la barra gran: ', trobar_h(15,10,maxims_t_g15,maxims_t_g10,temps)[0])
-print('Valor de h segons calcular sobre 0 i 15 de la barra gran: ', trobar_h(15,0,maxims_t_g15,maxims_t_g0,temps)[0])
+print('Valor de h segons calcular sobre 0 i 10 de la barra gran: ', trobar_h(10,0,maxims_t_g10,maxims_t_g0,temps)[0],'amb una incertesa de ',trobar_h(10,0,maxims_t_g10,maxims_t_g0,temps)[1])
+print('Valor de h segons calcular sobre 10 i 15 de la barra gran: ', trobar_h(15,10,maxims_t_g15,maxims_t_g10,temps)[0],'amb una incertesa de ',trobar_h(15,10,maxims_t_g15,maxims_t_g10,temps)[1])
+print('Valor de h segons calcular sobre 0 i 15 de la barra gran: ', trobar_h(15,0,maxims_t_g15,maxims_t_g0,temps)[0],'amb una incertesa de ',trobar_h(15,0,maxims_t_g15,maxims_t_g0,temps)[1])
 gran_general =[np.mean([trobar_h(10,0,maxims_t_g10,maxims_t_g0,temps)[0],trobar_h(15,10,maxims_t_g15,maxims_t_g10,temps)[0],trobar_h(15,0,maxims_t_g15,maxims_t_g0,temps)[0]]),max([trobar_h(10,0,maxims_t_g10,maxims_t_g0,temps)[1],trobar_h(15,10,maxims_t_g15,maxims_t_g10,temps)[1],trobar_h(15,0,maxims_t_g15,maxims_t_g0,temps)[1]])]
 print('Valor general: ',gran_general[0], 'amb una incertesa de ',gran_general[1])
 
 print()
 print('Mesures de h per a la barra petita')
-print('Valor de h segons calcular sobre 0 i 10 de la barra petita: ', trobar_h(10,0,maxims_t_p10,maxims_t_p0,temps)[0])
-print('Valor de h segons calcular sobre 10 i 20 de la barra petita: ', trobar_h(20,10,maxims_t_p20,maxims_t_p10,temps)[0])
-print('Valor de h segons calcular sobre 0 i 20 de la barra petita: ', trobar_h(20,0,maxims_t_p20,maxims_t_p0,temps)[0])
+print('Valor de h segons calcular sobre 0 i 10 de la barra petita: ', trobar_h(10,0,maxims_t_p10,maxims_t_p0,temps)[0],'amb una incertesa de ',trobar_h(10,0,maxims_t_p10,maxims_t_p0,temps)[1])
+print('Valor de h segons calcular sobre 10 i 20 de la barra petita: ', trobar_h(20,10,maxims_t_p20,maxims_t_p10,temps)[0],'amb una incertesa de ',trobar_h(20,10,maxims_t_p20,maxims_t_p10,temps)[1])
+print('Valor de h segons calcular sobre 0 i 20 de la barra petita: ', trobar_h(20,0,maxims_t_p20,maxims_t_p0,temps)[0],'amb una incertesa de ',trobar_h(20,0,maxims_t_p20,maxims_t_p0,temps)[1])
 petit_general = [ np.mean([trobar_h(10,0,maxims_t_p10,maxims_t_p0,temps)[0],trobar_h(20,10,maxims_t_p20,maxims_t_p10,temps)[0],trobar_h(20,0,maxims_t_p20,maxims_t_p0,temps)[0]]),max([trobar_h(10,0,maxims_t_p10,maxims_t_p0,temps)[1],trobar_h(20,10,maxims_t_p20,maxims_t_p10,temps)[1],trobar_h(20,0,maxims_t_p20,maxims_t_p0,temps)[1]])]
 print('Valor general: ',petit_general[0], 'amb una incertesa de ', petit_general[1] )
 
